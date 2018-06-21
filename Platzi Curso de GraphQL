@@ -1,0 +1,135 @@
+1. Introducción
+2. Orígenes de GraphQL
+3. GraphQL vs REST
+
+Rest
+
+- Es solo una convención: Es una manera de comunicarse entre el servidor y cliente, cada uno tiene sus reglas.
+GraphQL
+- Lenguaje tipado y validable: Le damos una forma de lo que recibe y lo que devolvemos. Ademas que le agrega seguridad
+
+Rest
+- Servidor expone recursos: Los clientes se tienen que adecuarse a como están expuestos
+GraphQL
+- El cliente define que recibe: Haciendo una consulta, de la estructura que define como respuesta
+
+Rest
+- Hace overfetching: Envía más información que necesita
+GraphQL
+- Envía lo necesario: Se tiene control total de las respuestas que se esperan del servidor
+
+Rest
+- Multiples request por vista: Muy costoso en performance, básicamente es una aplicación en blanco que aún no ha cargado datos o tiene custom endpoints
+GraphQL
+- Hace solo un request por vista: Enviados en un solo row
+
+Rest
+- Documentación ajena al desarrollo: No hay un estándar por lo que depende mucho del desarrollador para mantenerla.
+GraphQL
+- Documentado por definición: Al ser un lenguaje tipado se define un schema que ya esta documentado por definiciòn
+
+
+4. El Schema - Types
+
+Schema (Esquema)
+
+Define lo que el cliente pide
+Está compuesto por Types( Estos forman el Schema )
+
+Los types o tipos de datos que pueden usarse en un schema son:
+
+- Scalars
+- Objects
+- Enums
+- Interfaces
+- Unions
+
+5. Scalars
+
+Nos sirven para definir la mayoría de propiedades de nuestras entidades.
+
+Int: Son números enteros. Solamente recibe números enteros como un valor válido
+Float: Números de punto flotante
+String: Cadenas de caracteres
+Boolean: True or False
+ID: Es un identificador único
+
+6. Objects
+
+type Curso{
+  id : id!
+  descripcion: String
+  profesores: [Profesor]
+  rating: Int
+}
+
+type Profesor{
+  nombre: String
+  edad: Int
+  tieneMascota: Boolean
+}
+
+7. Enum
+
+Enum es un tipo que nos permite definir algo que puede tomar el valor de una lista de opciones.
+
+enum Tipo {
+    PROFESOR
+    ESTUDIANTE
+}
+
+8. Interface
+
+La interfaz (interface) permite una validacióna priori de los datos y tipos mínimos que son requeridos por el nuevo objeto / entidad que la implementa.
+
+interface Perfil{
+  nombre: String!
+  mail: String!
+}
+
+type PerfilFB implement Perfil{
+  nombre: String!
+  mail: String!
+  amigos: [Usuario]
+}
+
+9. Union
+
+union Busqueda = Amigo | Lugar | Evento | Pagina
+
+10. Modificadores de tipo
+11. Root Type: Query
+12. Root Type: Mutation
+13. Aclaración antes de empezar éste modulo
+14. La Interfaz de GraphiQL
+15. Queries
+16. Argumentos
+17. Variables
+18. Aliases
+19. Fragments
+20. Inline Fragments
+21. Directives
+22. Mutations
+23. Input Types
+24. Presentación del Proyecto
+25. Inicialización del Proyecto
+26. Creación del Esquema
+27. Deprecación de Campos
+28. Resolvers
+29. Desafío: Terminar los Resolvers
+30. Mocking
+31. Implementación de Bases de Datos
+32. Resolviendo a Base de Datos
+33. Modularización del Esquema
+34. Mutaciones: Creando Registros
+35. Mutaciones: Editando Registros
+36. Mutaciones: Eliminando Registros
+37. Desafío: Terminar de Crear las Mutaciones
+38. Implementando la Búsqueda
+39. Manejo de Errores
+40. Usando GraphQl fuera de GraphiQL
+41. Los Clientes de GraphQL: Apollo vs Relay
+42. Implementación de Apollo Client
+43. ¿Cuándo usar GraphQL?
+44. Herramientas de la Comunidad
+45. GraphQL Real Time con Subscriptions
